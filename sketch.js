@@ -21,15 +21,15 @@ function setup() {
 	createCanvas(500, 500);
   database=firebase.database();
 
-  foodObj = new Food(200,200,20,20);
+  //foodObj = new Food(200,200,20,20);
 
   feed=createButton("Feed the dog")
-  fedd.position(700,95)
+  feed.position(700,95)
   feed.mousePressed(feedDog)
 
   addFood=createButton("Add Food")
   addFood.position(800,95)
-  addFood.mousePRessed(addFoods)
+  addFood.mousePressed(addFoods)
   
 
   foodstock=database.ref('Food')
@@ -60,9 +60,8 @@ text("Press up arrow to feed the dog", 150,20)
 
 foodObj.display();
 
-display(){
+display()//{
   var x=80,y=100
-
   ImageBitmapRenderingContext(CENTER)
   Image(this.image,720,220,70,70)
 
@@ -75,7 +74,7 @@ y=y+50
 image(this.image,x,y,50,50)
 x=x+50;
   }
-}
+//}
 }
 
 function feedDog(){

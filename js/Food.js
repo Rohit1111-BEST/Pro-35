@@ -1,4 +1,4 @@
-class Food {
+class Food{
     costructor(){
     var foodStock
     var lastFed
