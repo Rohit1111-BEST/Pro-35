@@ -1,7 +1,7 @@
 //Create variables here
 var dog,happyDog;
 var database;
-var foodS,foodStock
+var foodS,foodStock,addFood
 var upArrow,downArrow
 var fedTime,lastFed
 var foodObj
