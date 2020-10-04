@@ -1,7 +1,7 @@
 //Create variables here
 var dog,happyDog;
 var database;
-var foodS,foodStock,addFood
+var foodS,foodStock,addFood,labFed
 var upArrow,downArrow
 var fedTime,lastFed
 var foodObj
@@ -58,24 +58,18 @@ fedTime.on("value",function(data){
   //add styles here
 text("Press up arrow to feed the dog", 150,20)
 
-foodObj.display();
+//foodObj.display();
 
-display()//{
-  var x=80,y=100
-  ImageBitmapRenderingContext(CENTER)
-  Image(this.image,720,220,70,70)
-
-  if(this.foodStock!=0){
-for(var i=0;i<this.foodStock;i++)
-if(i%10==0){
-x=80;
-y=y+50
-}
-image(this.image,x,y,50,50)
-x=x+50;
+if(labFed>12){
+  text("Last Feed : "+ lastFed%12 + "PM",350,30);
   }
-//}
-}
+  else if(lastFed==0){
+  text("Last Feed : 12 AM", 350, 30)
+  }
+  else{
+      text("Last Feed : "+ lastFed +"AM", 350,30)
+  }
+  }
 
 function feedDog(){
   dog.addImage("happyDog");
@@ -87,13 +81,26 @@ database.ref('/').update({
 })
 }
 
-function addDoods(){
+function addFoods(){
   foodS++;
   database.ref('/').update({
     Food:foodS
   })
 }
 
+function readStock(){
+  var foodref = database.ref("Food")
+  foodref.on("value",function(data){
+      foodS=data.val()
+  })
+}
 
 
+
+function deductFoodCount(){
+  foodS--;
+  database.ref('/').update({
+    Food:foodS
+  })
+}
 
