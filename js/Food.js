@@ -1,19 +1,10 @@
 class Food{
     costructor(){
-    var foodStock
-    var lastFed
+    this.foodStock
+    this.lastFed
+    this.image=loadImage("js/Milk.png")
     }
 
-
-getFoodStack(){
-
-}
-updateFoodStack(){
-
-}
-deductStack(){
-
-}
 
 display(){
     var x=80,y=100
@@ -27,7 +18,7 @@ display(){
   y=y+50
   }
   image(this.image,x,y,50,50)
-  x=x+50;
+  x=x+30;
     }
   }
   }

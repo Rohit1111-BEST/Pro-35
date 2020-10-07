@@ -6,7 +6,6 @@ var upArrow,downArrow
 var fedTime,lastFed
 var foodObj
 
-
 function preload()
 {
 
@@ -21,7 +20,8 @@ function setup() {
 	createCanvas(500, 500);
   database=firebase.database();
 
-  //foodObj = new Food(200,200,20,20);
+
+  foodObj = new Food();
 
   feed=createButton("Feed the dog")
   feed.position(700,95)
@@ -58,25 +58,24 @@ fedTime.on("value",function(data){
   //add styles here
 text("Press up arrow to feed the dog", 150,20)
 
-//foodObj.display();
+foodObj.display();
 
-if(labFed>12){
+if(lastFed>12){
   text("Last Feed : "+ lastFed%12 + "PM",350,30);
   }
   else if(lastFed==0){
-  text("Last Feed : 12 AM", 350, 30)
+  text("Last Fed : 12 AM", 350, 30)
   }
   else{
-      text("Last Feed : "+ lastFed +"AM", 350,30)
+      text("Last Fed : "+ lastFed +"AM", 350,30)
   }
   }
 
 function feedDog(){
-  dog.addImage("happyDog");
-
-foodObf.updatefoodStock(foodObj.getFoodStock()-1)
+  dog.changeImage("happydog",dog2)
+foodS--
 database.ref('/').update({
-  Food:foodObj.getFoodStock(),
+  Food:foodS,
   FeedTime:hour()
 })
 }
